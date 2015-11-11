@@ -27,12 +27,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UISearchBarDelegat
     
     let locationManager = CLLocationManager()
     
+    static let SJSU_SW : CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.331361, -121.886478);
+    static let SJSU_NE : CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.338800, -121.876243);
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         scrollView.minimumZoomScale = 0.8
-        scrollView.maximumZoomScale = 10
-        scrollView.contentSize = CGSizeMake(1280, 960);
+        scrollView.maximumZoomScale = 5
+        scrollView.contentSize = UIImage(named: "campusmap")!.size;
         automaticallyAdjustsScrollViewInsets = true
         scrollView.delegate = self
         search.delegate = self
@@ -77,6 +80,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UISearchBarDelegat
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.locationManager.stopUpdatingLocation()
+        let userX = Double(self.contentView.bounds.height) * (fabs(locValue.longitude)-fabs(self.dynamicType.SJSU_SW.longitude))/(fabs(self.dynamicType.SJSU_NE.longitude)-fabs(self.dynamicType.SJSU_SW.longitude));
+        let userY = Double(self.contentView.bounds.width) - (Double(self.contentView.bounds.width) * (fabs(locValue.latitude)-fabs(self.dynamicType.SJSU_SW.latitude))/(fabs(self.dynamicType.SJSU_NE.latitude)-fabs(self.dynamicType.SJSU_SW.latitude)));
+        let locationPoint : CGPoint = CGPointMake(CGFloat(userX), CGFloat(userY));
+        
+        displayRedCircleAt(locationPoint);
+        
     }
     
     // Mark: zoom buttons
@@ -109,6 +119,27 @@ class ViewController: UIViewController, UIScrollViewDelegate, UISearchBarDelegat
         let buildingDetailsController: BuildingDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("BuildingDetailsViewController") as! BuildingDetailsViewController;
         buildingDetailsController.setBuilding(campus.buildings[key]!)
         presentViewController(buildingDetailsController, animated: true, completion: nil)
+    }
+    
+    func displayRedCircleAt(point : CGPoint) {
+        
+        if let tempView = self.contentView.viewWithTag(999) {
+            
+            tempView.removeFromSuperview();
+        }
+        
+        let xStart : Int = Int(point.x);
+        let yStart : Int = Int(point.y);
+        
+        let innerCircleRect : CGRect = CGRectMake(CGFloat(xStart), CGFloat(yStart), 20, 20);
+        
+        let innerCircleView : UIView = UIView(frame: innerCircleRect);
+        innerCircleView.tag = 999;
+        
+        innerCircleView.backgroundColor = UIColor.redColor();
+        innerCircleView.layer.cornerRadius = 10.0;
+        self.contentView.addSubview(innerCircleView);
+        print("Red dot displayed")
     }
 }
 
