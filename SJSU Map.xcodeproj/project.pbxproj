@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B26FE3FC1BEEADB1003E54C3 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26FE3FB1BEEADB1003E54C3 /* Building.swift */; };
+		B26FE3FE1BEEB409003E54C3 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26FE3FD1BEEB409003E54C3 /* Campus.swift */; };
+		B26FE4001BEED502003E54C3 /* BuildingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26FE3FF1BEED502003E54C3 /* BuildingDetailsViewController.swift */; };
+		B26FE4021BF2C905003E54C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26FE4011BF2C905003E54C3 /* CoreLocation.framework */; };
 		B2A843AC1BE99389007B0E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A843AB1BE99389007B0E79 /* AppDelegate.swift */; };
 		B2A843AE1BE99389007B0E79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A843AD1BE99389007B0E79 /* ViewController.swift */; };
 		B2A843B11BE99389007B0E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A843AF1BE99389007B0E79 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B26FE3FB1BEEADB1003E54C3 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		B26FE3FD1BEEB409003E54C3 /* Campus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campus.swift; sourceTree = "<group>"; };
+		B26FE3FF1BEED502003E54C3 /* BuildingDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingDetailsViewController.swift; sourceTree = "<group>"; };
+		B26FE4011BF2C905003E54C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B2A843A81BE99389007B0E79 /* SJSU Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SJSU Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A843AB1BE99389007B0E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2A843AD1BE99389007B0E79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26FE4021BF2C905003E54C3 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,7 @@
 		B2A8439F1BE99388007B0E79 = {
 			isa = PBXGroup;
 			children = (
+				B26FE4011BF2C905003E54C3 /* CoreLocation.framework */,
 				B2A843AA1BE99389007B0E79 /* SJSU Map */,
 				B2A843BF1BE99389007B0E79 /* SJSU MapTests */,
 				B2A843CA1BE99389007B0E79 /* SJSU MapUITests */,
@@ -97,12 +107,15 @@
 		B2A843AA1BE99389007B0E79 /* SJSU Map */ = {
 			isa = PBXGroup;
 			children = (
+				B26FE3FB1BEEADB1003E54C3 /* Building.swift */,
 				B2A843AB1BE99389007B0E79 /* AppDelegate.swift */,
 				B2A843AD1BE99389007B0E79 /* ViewController.swift */,
 				B2A843AF1BE99389007B0E79 /* Main.storyboard */,
 				B2A843B21BE99389007B0E79 /* Assets.xcassets */,
 				B2A843B41BE99389007B0E79 /* LaunchScreen.storyboard */,
 				B2A843B71BE99389007B0E79 /* Info.plist */,
+				B26FE3FD1BEEB409003E54C3 /* Campus.swift */,
+				B26FE3FF1BEED502003E54C3 /* BuildingDetailsViewController.swift */,
 			);
 			path = "SJSU Map";
 			sourceTree = "<group>";
@@ -193,6 +206,7 @@
 				TargetAttributes = {
 					B2A843A71BE99388007B0E79 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = QW2SZ7R8X4;
 					};
 					B2A843BB1BE99389007B0E79 = {
 						CreatedOnToolsVersion = 7.1;
@@ -256,7 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26FE3FE1BEEB409003E54C3 /* Campus.swift in Sources */,
+				B26FE4001BEED502003E54C3 /* BuildingDetailsViewController.swift in Sources */,
 				B2A843AE1BE99389007B0E79 /* ViewController.swift in Sources */,
+				B26FE3FC1BEEADB1003E54C3 /* Building.swift in Sources */,
 				B2A843AC1BE99389007B0E79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,10 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SJSU Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fenders.SJSU-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -408,10 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SJSU Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fenders.SJSU-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,6 +505,7 @@
 				B2A843D21BE99389007B0E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2A843D31BE99389007B0E79 /* Build configuration list for PBXNativeTarget "SJSU MapTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +514,7 @@
 				B2A843D51BE99389007B0E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2A843D61BE99389007B0E79 /* Build configuration list for PBXNativeTarget "SJSU MapUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +523,7 @@
 				B2A843D81BE99389007B0E79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
